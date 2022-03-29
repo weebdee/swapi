@@ -1,13 +1,13 @@
-import React, { Component, useState, useEffect, useLayoutEffect  } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 
 import './item-list.css';
 
-const ItemList = ({setSelectedItemId, swapi}) => {
+const ItemList = ({setSelectedItemId, getData}) => {
   const [state, setState] = useState([]);
   const {data} = state;
 
   useEffect(() => {
-    swapi.getAllPeople().then((data) => {
+    getData().then((data) => {
       setState(data)
     })
   }, [])

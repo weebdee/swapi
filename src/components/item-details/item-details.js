@@ -1,25 +1,30 @@
 import React, {useState, useEffect} from 'react';
 
-import './person-details.css';
+import './item-details.css';
 
-const PersonDetails = ({selectedItemId, swapi}) => {
+const ItemDetails = ({selectedItemId, getData, getImg}) => {
   const [state, setState] = useState({});
   const {id, name, gender, birthYear, eyeColor} = state;
-  const imgUrl = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`
-
+  
+  
   useEffect(() => {
-    const updatePerson = () => {
-      swapi.getPerson(selectedItemId).then(data => {
+    const updateItem = () => {
+      getData(selectedItemId).then(data => {
         setState(data)
       })
+      
     }
-    updatePerson()
+    
+    updateItem()
   }, [selectedItemId])
+
+  const imgUrl = getImg(id)
 
   return (
     <div className="person-details card">
       <img className="person-image"
-        src={imgUrl} />
+        src={imgUrl} 
+        />
 
       <div className="card-body">
         <h4>{name}</h4>
@@ -42,4 +47,4 @@ const PersonDetails = ({selectedItemId, swapi}) => {
   )
 }
 
-export default PersonDetails
+export default ItemDetails

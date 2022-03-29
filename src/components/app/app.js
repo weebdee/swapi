@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
 import { PeoplePage } from '../pages';
+// import { PlanetPage, StarshipPage} from '../pages';
 import { Provider } from '../swapi-context';
 import SwapiService from '../../services/swapi-service';
 
