@@ -14,7 +14,6 @@ const Record = ({data, label, fieldName}) => {
 const ItemDetails = ({selectedItemId, getData, getImg, children}) => {
   const [state, setState] = useState({});
   
-  
   useEffect(() => {
     const updateItem = () => {
       getData(selectedItemId).then(data => {
@@ -22,8 +21,8 @@ const ItemDetails = ({selectedItemId, getData, getImg, children}) => {
       })
       
     }
-    
     updateItem()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedItemId])
 
   const imgUrl = getImg(state.id)
@@ -31,8 +30,8 @@ const ItemDetails = ({selectedItemId, getData, getImg, children}) => {
   return (
     <div className="person-details card">
       <img className="person-image"
-        src={imgUrl} 
-        />
+        src={imgUrl} alt='img'
+      />
 
       <div className="card-body">
         <h4>{state.name}</h4>

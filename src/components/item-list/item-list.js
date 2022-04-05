@@ -1,18 +1,16 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './item-list.css';
 
 const ItemList = ({setSelectedItemId, getData}) => {
   const [state, setState] = useState([]);
-  const {data} = state;
 
   useEffect(() => {
     getData().then((data) => {
       setState(data)
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-
 
   const content = state.map(item => {
     return (

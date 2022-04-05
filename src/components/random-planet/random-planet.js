@@ -23,11 +23,12 @@ const RandomPlanet = () => {
     }, 3000)
 
     return () => clearInterval(meka)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <div className="random-planet jumbotron rounded">
-      <img className="planet-image" src={imgUrl} />
+      <img className="planet-image" src={imgUrl} alt='random_img'/>
       <div>
         <h4>{name}</h4>
         <ul className="list-group list-group-flush">
